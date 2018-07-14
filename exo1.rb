@@ -4,7 +4,7 @@ require 'open-uri'
 
 
 
-def scrap
+def scrapping
     var = {}
     page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
     links = page.css("a").select{|link| link['class'] == "lientxt"}
@@ -19,4 +19,4 @@ def scrap
     end
 end
 
-scrap
+scrapping
