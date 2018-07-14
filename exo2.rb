@@ -4,23 +4,27 @@ require 'open-uri'
 
 #Méthode qui récupere le nom des cryptomonnaies
 def names
-	arr = []
+
+	array = []
 	doc = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
 	doc.css(".currency-name-container").each do |names|
-		arr << names.text
+		array << names.text
+
 	end
-	return arr
-end
+	return array
+  end
 
 #Méthode qui récupere le cours des cryptomonnaies
 def price
-	arr = []
+
+	array = []
 	doc = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
 	doc.css(".price").each do |price|
-		arr.push << price.text
+		array.push << price.text
+
 	end
-	return arr
-end
+	return array
+  end
 
 var = Hash[names.zip(price)]
 
